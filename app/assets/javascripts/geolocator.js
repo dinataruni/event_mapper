@@ -20,7 +20,6 @@ $(document).ready(function(e){
     $("#location").html("Geolocation is not supported by this browser.")
   };
 
-
   function savePosition(position){
     $.ajax({
       dataType: "json",
@@ -28,24 +27,29 @@ $(document).ready(function(e){
       data: { latitude: position.coords.latitude, longitude: position.coords.longitude},
       success: showPosition(position)
     });
-  }
+  };
 
 
   function showPosition(position){
-    initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+    initialLocation = setGooglePosition(position);
     map.setCenter(initialLocation);
 
-		var marker = new google.maps.Marker({
-		    position: initialLocation,
-		    title:"You are here!"
+   setMarker(position, "You are here!");
+  };
+
+  function setMarker(position, title){
+	  var marker = new google.maps.Marker({
+	    position: setGooglePosition(position),
+	    title: title
 		});
 		
 		marker.setMap(map);
   };
 
-  // function setMarker(position){
-  // 	  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
-  // };
+// {position: {latitude: something, longitude: something_else}}
+  function setGooglePosition(position){
+  	return(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+  };
 
 
 });
