@@ -34,13 +34,15 @@ $(document).ready(function(e){
     initialLocation = setGooglePosition(position);
     map.setCenter(initialLocation);
 
-   setMarker(position, "You are here!");
+   setMarker(position, "You are here!", "<%= asset_path('circle_blue.png') %>");
   };
 
-  function setMarker(position, title){
+  function setMarker(position, title, image){
+	  image_icon = image || "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
 	  var marker = new google.maps.Marker({
 	    position: setGooglePosition(position),
-	    title: title
+	    title: title,
+	    icon: image
 		});
 		
 		marker.setMap(map);
