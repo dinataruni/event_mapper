@@ -1,5 +1,4 @@
 EventMapper::Application.routes.draw do
-
   resources :events
 
   get "geolocator/index"

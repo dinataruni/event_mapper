@@ -5,20 +5,36 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @events = Event.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @events }
+    end
   end
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new.from_json %q{ { "name": "Meetup Name", "lat": "37.78", "lon": "-127.23", "radius": "1", "description": "lorem ipsum", "event_url": "http://www.meetup.com", "time": "1385085600000" } }
+    
+    respond_to do |format|
+      format.html # snew.html.erb
+      format.json { render json: @event }
+    end
   end
 
   # GET /events/1/edit
   def edit
+    @events = Event.find(params[:id])
   end
 
   # POST /events
