@@ -49,9 +49,49 @@ $(document).ready(function(e){
   };
 
 // {position: {latitude: something, longitude: something_else}}
+  // function setGooglePosition(position){
+  // 	return(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+  // };
+
+// This is Example of Dropping Markers 
   function setGooglePosition(position){
-  	return(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+  	//return(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+
+    return(new google.maps.LatLng(52.520816, 13.410186))
   };
 
+	var neighborhoods = [
+	  new google.maps.LatLng(52.511467, 13.447179),
+	  new google.maps.LatLng(52.549061, 13.422975),
+	  new google.maps.LatLng(52.497622, 13.396110),
+	  new google.maps.LatLng(52.517683, 13.394393)
+	];
+	
+	var markers = [];
+	var iterator = 0;
+	
+	function drop() {
+	  for (var i = 0; i < neighborhoods.length; i++) {
+	    setTimeout(function() {
+	      addMarker();
+	    }, i * 200);
+	  }
+	}
+
+	function addMarker() {
+	  markers.push(new google.maps.Marker({
+	    position: neighborhoods[iterator],
+	    map: map,
+	    draggable: false,
+	    animation: google.maps.Animation.DROP
+	  }));
+	  iterator++;
+	}
+	
+	
+	$("#drop").on('click', function (e) {
+	  e.preventDefault();
+	  drop();
+	});
 
 });
