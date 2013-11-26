@@ -30,10 +30,22 @@ $(document).ready(function(e){
     });
   }
 
+
   function showPosition(position){
     initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
     map.setCenter(initialLocation);
+
+		var marker = new google.maps.Marker({
+		    position: initialLocation,
+		    title:"You are here!"
+		});
+		
+		marker.setMap(map);
   };
+
+  // function setMarker(position){
+  // 	  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+  // };
 
 
 });
