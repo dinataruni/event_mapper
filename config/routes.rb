@@ -1,5 +1,8 @@
 EventMapper::Application.routes.draw do
+  resources :queries
   resources :events
+  
+  get "queries/index"
 
   get "geolocator/index"
   get "geolocator/set_session"
