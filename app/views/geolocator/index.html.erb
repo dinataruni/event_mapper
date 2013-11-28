@@ -1,5 +1,7 @@
-<% if session[:current_latitude].present? %>
-	<%= session[:current_latitude] %>
+<% if session[:current_position].present? %>
+	<%= session[:current_position].to_s %>
 <% end %>
 
 <div id="googleMap"></div>
+
+<button id="drop">What's happening?</button>

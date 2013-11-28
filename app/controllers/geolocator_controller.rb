@@ -3,8 +3,8 @@ class GeolocatorController < ApplicationController
   end
 
   def set_session
-    session[:current_longitude] = params[:longitude]
-    session[:current_latitude] = params[:latitude]
+    location = Geolocator.new(params[:latitude], params[:longitude])
+    session[:current_position] = location
     head :no_content
   end
 end
