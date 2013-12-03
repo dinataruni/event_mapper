@@ -1,5 +1,8 @@
 EventMapper::Application.routes.draw do
+  resources :queries
   resources :events
+  
+  get "queries/index"
 
   get "geolocator/index"
   get "geolocator/set_session"
@@ -8,7 +11,7 @@ EventMapper::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'geolocator#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  time: 1
+  lat: 1
+  lon: 1
+  category: 1
+  radius: 1
+  page: 1
+
+two:
+  time: 1
+  lat: 1
+  lon: 1
+  category: 1
+  radius: 1
+  page: 1
