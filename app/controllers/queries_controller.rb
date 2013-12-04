@@ -1,6 +1,20 @@
 class QueriesController < ApplicationController
-  def index 
-    @end_time = (Time.now.to_i + 7200) * 1000
-    @muquery = "https://api.meetup.com/2/open_events?&sign=true&lon=%s&lat=%s&time=0,%s&category=34&radius=1&page=15&key=324f2a59787e80805a38532c2ea772c" % [@geolocator.latitude, @geolocator.longitude, @end_time] 
+    require 'net/http'
+    
+    def index
+      @geolocator = session[:current_position]
+      @end_time = (Time.now.to_i + 7200) * 1000
+      @muquery = "https://api.meetup.com/2/open_events?&sign=true&lon=%s&lat=%s&time=0,%s&category=34&radius=1&page=15&key=324f2a59787e80805a38532c2ea772c" % [@geolocator.longitude, @geolocator.latitude, @end_time]
+      
+      api_uri = URI(@muquery)
+      https = Net::HTTP.get_response(URI.parse(@muquery))
+     
+      p api_uri
+      data = https.body
+      result = JSON.parse(data)
+      p result # <== we need this to go to the events object rather than print JSON to the console
+      
   end
+
 end
+
