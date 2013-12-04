@@ -24,12 +24,12 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new.from_json %q{ { "name": "Meetup Name", "lat": "37.78", "lon": "-127.23", "radius": "1", "description": "lorem ipsum", "event_url": "http://www.meetup.com", "time": "1385085600000" } }
-    
-    respond_to do |format|
-      format.html # snew.html.erb
-      format.json { render json: @event }
-    end
+    @event = Event.new# .from_json %q{ { "name": "Meetup Name", "lat": "37.78", "lon": "-127.23", "radius": "1", "description": "lorem ipsum", "event_url": "http://www.meetup.com", "time": "1385085600000" } }
+    # 
+    #     respond_to do |format|
+    #       format.html # new.html.erb
+    #       format.json { render json: @event }
+    # end
   end
 
   # GET /events/1/edit

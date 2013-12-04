@@ -12,8 +12,7 @@ class QueriesController < ApplicationController
       p api_uri
       data = https.body
       result = JSON.parse(data)
-      p result # <== we need this to go to the events object rather than print JSON to the console
-      
+      p result
   end
 
 end
