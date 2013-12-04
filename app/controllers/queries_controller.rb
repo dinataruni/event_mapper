@@ -8,13 +8,12 @@ class QueriesController < ApplicationController
       
       api_uri = URI(@muquery)
       https = Net::HTTP.get_response(URI.parse(@muquery))
-      # https.use_ssl=true
+     
       p api_uri
       data = https.body
       result = JSON.parse(data)
-      p result
-      # @r = https.request_get(api_uri.path)
-      # render :json => @r
+      p result # <== we need this to go to the events object rather than print JSON to the console
+      
   end
 
 end
