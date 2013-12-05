@@ -2,20 +2,26 @@
 	<%= session[:current_position].to_s %>
 <% end %>
 
-<div id="googleMap"></div>
+<div id="googleMap">
+</div>
 
-<button id="drop" onclick ="callquery();">What's happening?</button>
 
-<%= form_for :address do |f| %>
-	<p>
-		<%= f.label :current_address %><br>
-		<%= f.text_field :current_address %>
-	</p>
+<button id="drop">What's happening?</button>
 
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+
+<div id="addressField">
+	<%= form_for :address do |f| %>
+		<p>
+			<%= f.label(:address, "Not your location? Enter your current address here:")  %><br>
+			<%= f.text_field :current_address %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+
+</div>
 
 <!--"Not your location? Enter your current address here:"
 	-make text box longer
