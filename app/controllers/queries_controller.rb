@@ -12,7 +12,9 @@ class QueriesController < ApplicationController
       p api_uri
       data = https.body
       result = JSON.parse(data)
-      p result['results'][15]
+      p result['results']
+
+      render :json => result
   end
 
 end
