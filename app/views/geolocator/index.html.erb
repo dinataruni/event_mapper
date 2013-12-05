@@ -6,16 +6,20 @@
 
 <button id="drop" onclick ="callquery();">What's happening?</button>
 
-<%= form_for :address do |f| %>
-	<p>
-		<%= f.label :current_address %><br>
-		<%= f.text_field :current_address %>
-	</p>
 
-	<p>
-		<%= f.submit %>
-	</p>
-<% end %>
+<div id="addressField">
+	<%= form_for :address do |f| %>
+		<p>
+			<%= f.label(:address, "Not your location? Enter your current address here:")  %><br>
+			<%= f.text_field :current_address %>
+		</p>
+
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+
+</div>
 
 <!--"Not your location? Enter your current address here:"
 	-make text box longer
