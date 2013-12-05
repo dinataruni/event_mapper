@@ -1,4 +1,18 @@
-html, body, #googleMap {
-   width: 99%;
-   height: 99%;
+#googleMap:first-child {
+	width:100%;
+	height:800px;
+}
+
+#drop {
+	position:absolute;
+	top:90px;
+	left:1100px;
+	z-index:1;
+}
+
+#addressField {
+	position:absolute;
+	top:120px;
+	left:1100px;
+	z-index:1;
 }
