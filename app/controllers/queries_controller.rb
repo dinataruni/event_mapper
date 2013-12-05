@@ -12,7 +12,7 @@ class QueriesController < ApplicationController
       p api_uri
       data = https.body
       result = JSON.parse(data)
-      p result
+      p result['results'][15]
   end
 
 end
