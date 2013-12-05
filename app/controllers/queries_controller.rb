@@ -15,7 +15,12 @@ class QueriesController < ApplicationController
       p result['results']
 
       render :json => result
-  end
+   end
 
+   def set_events
+      events = result(['results'][15])
+      session[:events] = meetup_events
+      head :no_content
+   end
 end
 

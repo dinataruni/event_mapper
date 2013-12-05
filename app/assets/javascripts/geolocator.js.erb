@@ -60,8 +60,11 @@ $(document).ready(function(e){
     // return(new google.maps.LatLng(52.520816, 13.410186))
   };
 
-	var neighborhoods = [
-	  // this needs to be made dynamic
+	var meetup_events = [
+	  // this needs to be made dynamic ie:
+    //   for (var i =0; i < 15; i++){
+    //   new google.maps.LatLng(venue:lat, venue:lon)}
+    // ];
 	  new google.maps.LatLng(37.7989037, -122.40555), 
 	  new google.maps.LatLng(37.7950923, -122.40855),
 	  new google.maps.LatLng(37.7989037, -122.40318),
@@ -72,7 +75,7 @@ $(document).ready(function(e){
 	var iterator = 0;
 	
 	function drop() {
-	  for (var i = 0; i < neighborhoods.length; i++) {
+	  for (var i = 0; i < meetup_events.length; i++) {
 	    setTimeout(function() {
 	      addMarker();
 	    }, i * 200);
@@ -81,7 +84,7 @@ $(document).ready(function(e){
 
 	function addMarker() {
 	  markers.push(new google.maps.Marker({
-	    position: neighborhoods[iterator],
+	    position: meetup_events[iterator],
 	    map: map,
 	    draggable: false,
 	    animation: google.maps.Animation.DROP

@@ -4,7 +4,7 @@ function callquery(){
       dataType: "json",
       url: "/queries",
       success: function(data){
-      console.log(data);
+      console.log(data["results"]);
     }
     });
   };
