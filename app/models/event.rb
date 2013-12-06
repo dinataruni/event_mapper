@@ -1,6 +1,6 @@
  class Event
   include ActiveModel::Serializers::JSON
-  belongs_to :query
+
 
   attr_reader :name, :lat, :lon, :distance, :description, :event_url, :time
 

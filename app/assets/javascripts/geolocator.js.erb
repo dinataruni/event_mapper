@@ -39,13 +39,14 @@ $(document).ready(function(e){
 
   function setMarker(position, title, image){
 	  image_icon = image || "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
-	  var marker = new google.maps.Marker({
+	  	
+	var marker = new google.maps.Marker({
 	    position: setGooglePosition(position),
 	    title: title,
 	    icon: image
 		});
 		
-		marker.setMap(map);
+		
   };
 
 // {position: {latitude: something, longitude: something_else}}
@@ -83,7 +84,15 @@ $(document).ready(function(e){
 	}
 
 	function addMarker() {
-	  markers.push(new google.maps.Marker({
+	  	marker.setMap(map);
+		// Create a script tag and set the Event URL as the source.
+		  var script = document.createElement('script');
+		  script.src = '/queries';
+		  var s = document.getElementsByTagName('script')[0];
+		  s.parentNode.insertBefore(script, s);
+	
+	
+	markers.push(new google.maps.Marker({
 	    position: meetup_events[iterator],
 	    map: map,
 	    draggable: false,
